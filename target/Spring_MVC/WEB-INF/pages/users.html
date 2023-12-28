@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>USERS</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 20px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #ca3fce;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <h1>USERS:</h1>
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>FIRSTNAME</th>
+            <th>LASTNAME</th>
+            <th>EMAIL</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="user, iterStat : ${userList}" th:style="${iterStat}? 'font-weight: bold;'">
+            <td th:text="${iterStat.index}+1"></td>
+            <td th:text="${user.firstName}"></td>
+            <td th:text="${user.lastName}"></td>
+            <td th:text="${user.email}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
+<!--<!DOCTYPE html>-->
+<!--<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>CARS</title>-->
+
+<!--</head>-->
+<!--<h1>CARS:</h1>-->
+
+<!--<body>-->
+<!--<div>-->
+<!--    <table>-->
+<!--        <thead>-->
+<!--        <tr>-->
+<!--            <th>ID</th>-->
+<!--            <th>BRAND</th>-->
+<!--            <th>MODEL</th>-->
+<!--            <th>YEAR</th>-->
+<!--        </tr>-->
+<!--        </thead>-->
+<!--        <tbody>-->
+<!--        <tr th:each="car, iterStat : ${carList}"-->
+<!--            th:style="${iterStat}? 'font-weight: bold;'">-->
+<!--            <td th:text="${iterStat.index}+1"></td>-->
+<!--            <td th:text="${car.brand}"></td>-->
+<!--            <td th:text="${car.model}"></td>-->
+<!--            <td th:text="${car.year}"></td>-->
+<!--        </tr>-->
+<!--        </tbody>-->
+<!--    </table>-->
+<!--</div>-->
+<!--</body>-->
+<!--</html>-->

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>USERS</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 20px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        a, button {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            display: inline-block;
+            padding: 10px 20px;
+            margin-bottom: 5px;
+            border-radius: 4px;
+            cursor: pointer;
+            text-align: left;
+            transition: background-color 0.3s;
+        }
+
+        a {
+            background-color: #4285f4;
+        }
+
+        a:hover {
+            background-color: #3a76c4;
+        }
+
+        button {
+            background-color: #4caf50;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <h1>USER IDs:</h1>
+    <ul>
+        <li th:each="user : ${userList}">
+            <a th:href="@{'/users/' + ${user.id}}">User ID: <span th:text="${user.id}"></span></a>
+        </li>
+    </ul>
+
+    <!-- Button for creating a new user -->
+    <button onclick="window.location.href='/users/new'">Create New User</button>
+</div>
+</body>
+</html>
